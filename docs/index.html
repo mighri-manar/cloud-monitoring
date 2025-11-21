@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Network Security & Monitoring Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .card {
+            background: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .card h2 {
+            color: #2980b9;
+            margin-top: 0;
+        }
+        .button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 10px 10px 0;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #2980b9;
+        }
+        .badge {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌐 Network Security & Monitoring Infrastructure</h1>
+        
+        <p>
+            <span class="badge">Phase 3 Complete</span>
+            <span class="badge">10 Routers</span>
+            <span class="badge">MPLS Enabled</span>
+        </p>
+
+        <div class="card">
+            <h2>📄 Network Documentation</h2>
+            <p>Complete network topology with all router configurations, IP addresses, and connectivity details.</p>
+            <a href="network-topology-summary.html" class="button">View Network Topology</a>
+        </div>
+
+        <div class="card">
+            <h2>📊 Project Status</h2>
+            <p><strong>Current Phase:</strong> Implementing Advanced Security (ACLs & Fortigate)</p>
+            <ul>
+                <li>✅ MPLS Core Network - Complete</li>
+                <li>✅ OSPF Routing - Complete</li>
+                <li>✅ RADIUS Authentication - Complete</li>
+                <li>⏳ Access Control Lists - In Progress</li>
+                <li>⏳ Fortigate Firewall - Planned</li>
+                <li>⏳ Nagios Monitoring - Planned</li>
+                <li>⏳ ELK Stack - Planned</li>
+                <li>⏳ Wazuh HIDS/NIDS - Planned</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🔗 Resources</h2>
+            <a href="https://github.com/yourusername/repository-name" class="button">GitHub Repository</a>
+            <a href="https://github.com/yourusername/repository-name/tree/main/configs" class="button">Router Configs</a>
+        </div>
+
+        <div class="card">
+            <h2>🏗️ Network Architecture</h2>
+            <ul>
+                <li><strong>Core Routers:</strong> R1, R2 (MPLS Provider Network)</li>
+                <li><strong>Provider Edge:</strong> R3, R4 (Customer Facing)</li>
+                <li><strong>Distribution:</strong> R5</li>
+                <li><strong>Internet Gateway:</strong> R6 (NAT Overload)</li>
+                <li><strong>DMZ Services:</strong> R7 (RADIUS, Test Services)</li>
+                <li><strong>Monitoring:</strong> R8</li>
+                <li><strong>Customer Edge:</strong> C1, C2</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🛠️ Technologies</h2>
+            <p>
+                <strong>Networking:</strong> MPLS LDP, OSPF, NAT<br>
+                <strong>Security:</strong> RADIUS, ACLs, Fortigate (planned)<br>
+                <strong>Monitoring:</strong> Nagios, ELK, Wazuh (planned)<br>
+                <strong>Platform:</strong> GNS3, VMware, Cisco IOS
+            </p>
+        </div>
+    </div>
+</body>
+</html>
