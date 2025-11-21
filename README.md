@@ -16,7 +16,7 @@ This project implements a comprehensive network security and monitoring solution
 **HIDS/NIDS Solutions** - Host and Network Intrusion Detection Systems with integrated monitoring and analysis capabilities.
 
 ### 📄 Quick Reference Documentation
-**[Network Topology Summary PDF](docs/GNS3-Network-Topology-Summary.pdf)** - Complete network documentation with all router configurations, IP addresses, MPLS setup, and connectivity details.
+**[Network Topology Summary](docs/network-topology-summary.html)** - Complete network documentation with all router configurations, IP addresses, MPLS setup, and connectivity details.
 
 ---
 
