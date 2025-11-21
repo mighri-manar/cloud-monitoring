@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>GNS3 Network Topology Summary</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 10pt; color: #333; }
+    h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+    h2 { color: #2980b9; border-bottom: 2px solid #3498db; margin-top: 20px; }
+    h3 { color: #34495e; margin-top: 15px; }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+    th { background-color: #3498db; color: white; padding: 8px; text-align: left; }
+    td { padding: 6px 8px; border: 1px solid #ddd; }
+    tr:nth-child(even) { background-color: #f8f9fa; }
+    .highlight { background-color: #fff3cd; padding: 10px; border-left: 4px solid #ffc107; margin: 10px 0; }
+    .router-box { background-color: #e8f4f8; border: 2px solid #3498db; padding: 10px; margin: 10px 0; }
+    .feature-badge { background-color: #27ae60; color: white; padding: 2px 8px; border-radius: 3px; font-size: 8pt; margin-right: 5px; }
+  </style>
+</head>
+<body>
+  <h1>GNS3 Network Topology Summary</h1>
+  <p><strong>Generated:</strong> 20/11/2025 22:26:43</p>
+  
+  <div class="highlight">
+    <strong>Network Overview:</strong> MPLS-enabled service provider network with customer edge connections, DMZ services, and monitoring infrastructure.
+  </div>
+
+  <h2>Virtual Machines and Key Systems</h2>
+  <table>
+    <tr><th>System</th><th>IP Address</th><th>Purpose</th></tr>
+    <tr><td>GNS3 VM</td><td>192.168.182.128</td><td>GNS3 virtualization host</td></tr>
+    <tr><td>Asterisk VM</td><td>192.168.70.10</td><td>VoIP/telephony services</td></tr>
+    <tr><td>RADIUS VM</td><td>192.168.71.2</td><td>Authentication server</td></tr>
+    <tr><td>Client1-1 VM</td><td>192.168.9.10</td><td>Test client workstation</td></tr>
+  </table>
+
+  <h2>Core Routers (MPLS Provider Network)</h2>
+
+  <div class="router-box">
+    <h3>R1 - Core Router 1</h3>
+    <span class="feature-badge">MPLS</span>
+    <span class="feature-badge">OSPF Area 0</span>
+    <p><strong>Loopback0:</strong> 1.1.1.1/32</p>
+    <table>
+      <tr><th>Interface</th><th>IP Address</th><th>Description</th><th>Features</th></tr>
+      <tr><td>Fa0/0</td><td>10.0.1.1/30</td><td>Link to R2 f0/0</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa1/0</td><td>10.0.2.1/30</td><td>Link to R3 f0/0</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa2/0</td><td>10.0.3.1/30</td><td>Link to R3 f1/0 (redundant)</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa3/0</td><td>10.0.4.1/30</td><td>Link to R4 f2/0</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa4/0</td><td>10.0.5.1/30</td><td>Link to R4 f3/0 (redundant)</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa5/0</td><td>10.0.6.1/30</td><td>Link to R5 f0/0</td><td>MPLS enabled</td></tr>
+    </table>
+  </div>
+
+  <div class="router-box">
+    <h3>R2 - Core Router 2</h3>
+    <span class="feature-badge">MPLS</span>
+    <span class="feature-badge">OSPF Area 0</span>
+    <p><strong>Loopback0:</strong> 2.2.2.2/32</p>
+    <table>
+      <tr><th>Interface</th><th>IP Address</th><th>Description</th><th>Features</th></tr>
+      <tr><td>Fa0/0</td><td>10.0.1.2/30</td><td>Link to R1</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa1/0</td><td>10.0.7.1/30</td><td>Link to R4 primary</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa2/0</td><td>10.0.8.1/30</td><td>Link to R4 redundant</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa3/0</td><td>10.0.9.1/30</td><td>Link to R3 primary</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa4/0</td><td>10.0.10.1/30</td><td>Link to R3 redundant</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa5/0</td><td>10.0.11.1/30</td><td>Link to R5</td><td>MPLS enabled</td></tr>
+    </table>
+  </div>
+
+  <h2>Provider Edge Routers</h2>
+
+  <div class="router-box">
+    <h3>R3 - PE Router 1</h3>
+    <span class="feature-badge">MPLS</span>
+    <span class="feature-badge">Customer Edge</span>
+    <p><strong>Loopback0:</strong> 3.3.3.3/32</p>
+    <table>
+      <tr><th>Interface</th><th>IP Address</th><th>Description</th><th>Features</th></tr>
+      <tr><td>Fa0/0</td><td>10.0.2.2/30</td><td>Link to R1</td><td>MPLS, ACL 101</td></tr>
+      <tr><td>Fa1/0</td><td>10.0.3.2/30</td><td>Link to R1 redundant</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa2/0</td><td>10.0.9.2/30</td><td>Link to R2</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa3/0</td><td>10.0.10.2/30</td><td>Link to R2 redundant</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa4/0</td><td>10.0.22.1/30</td><td>Link to C1</td><td>No MPLS</td></tr>
+    </table>
+  </div>
+
+  <div class="router-box">
+    <h3>R4 - PE Router 2</h3>
+    <span class="feature-badge">MPLS</span>
+    <span class="feature-badge">Customer Edge</span>
+    <p><strong>Loopback0:</strong> 4.4.4.4/32</p>
+    <table>
+      <tr><th>Interface</th><th>IP Address</th><th>Description</th><th>Features</th></tr>
+      <tr><td>Fa0/0</td><td>10.0.7.2/30</td><td>Link to R2</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa1/0</td><td>10.0.8.2/30</td><td>Link to R2 redundant</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa2/0</td><td>10.0.4.2/30</td><td>Link to R1</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa3/0</td><td>10.0.5.2/30</td><td>Link to R1 redundant</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa4/0</td><td>10.0.23.1/30</td><td>Link to C2</td><td>No MPLS</td></tr>
+    </table>
+  </div>
+
+  <div class="router-box">
+    <h3>R5 - Distribution Router</h3>
+    <span class="feature-badge">MPLS</span>
+    <p><strong>Loopback0:</strong> 5.5.5.5/32</p>
+    <table>
+      <tr><th>Interface</th><th>IP Address</th><th>Description</th><th>Features</th></tr>
+      <tr><td>Fa0/0</td><td>10.0.6.2/30</td><td>Link to R1</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa1/0</td><td>10.0.11.2/30</td><td>Link to R2</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa2/0</td><td>10.0.12.1/30</td><td>Link to R6 primary</td><td>MPLS enabled</td></tr>
+      <tr><td>Fa3/0</td><td>10.0.13.1/30</td><td>Link to R6 redundant</td><td>MPLS enabled</td></tr>
+    </table>
+  </div>
+
+  <h2>Edge and Internet Gateway</h2>
+
+  <div class="router-box">
+    <h3>R6 - Internet Gateway</h3>
+    <span class="feature-badge">MPLS</span>
+    <span class="feature-badge">NAT Overload</span>
+    <p><strong>Loopback0:</strong> 6.6.6.6/32 | <strong>DNS:</strong> 8.8.8.8, 8.8.4.4</p>
+    <table>
+      <tr><th>Interface</th><th>IP Address</th><th>Description</th><th>NAT</th></tr>
+      <tr><td>Fa0/0</td><td>10.0.12.2/30</td><td>Link to R5</td><td>Inside</td></tr>
+      <tr><td>Fa1/0</td><td>10.0.13.2/30</td><td>Link to R5 redundant</td><td>Inside</td></tr>
+      <tr><td>Fa2/0</td><td>10.0.20.1/30</td><td>Link to R8 Monitoring</td><td>Inside</td></tr>
+      <tr><td>Fa3/0</td><td>10.0.21.1/30</td><td>Link to R7 DMZ</td><td>Inside</td></tr>
+      <tr><td>Gi6/0</td><td>192.168.182.100/24</td><td>Internet</td><td>Outside</td></tr>
+    </table>
+  </div>
+
+  <h2>DMZ and Services</h2>
+
+  <div class="router-box">
+    <h3>R7 - DMZ Router</h3>
+    <span class="feature-badge">AAA/RADIUS</span>
+    <span class="feature-badge">ACL 101</span>
+    <p><strong>Loopback0:</strong> 192.168.7.1/24 (DMZ Services)</p>
+    <table>
+      <tr><th>Interface</th><th>IP Address</th><th>Description</th></tr>
+      <tr><td>Fa0/0</td><td>10.0.21.2/30</td><td>Link to R6 Gateway</td></tr>
+      <tr><td>Fa1/0</td><td>192.168.70.1/24</td><td>Asterisk VM</td></tr>
+      <tr><td>Fa2/0</td><td>192.168.71.1/24</td><td>RADIUS Server</td></tr>
+    </table>
+    <p><strong>RADIUS:</strong> 192.168.71.2 (ports 1812-1813, key: testing123)</p>
+  </div>
+
+  <div class="router-box">
+    <h3>R8 - Monitoring Router</h3>
+    <span class="feature-badge">Monitoring Network</span>
+    <p><strong>Loopback0:</strong> 192.168.8.1/24</p>
+    <table>
+      <tr><th>Interface</th><th>IP Address</th><th>Description</th></tr>
+      <tr><td>Fa0/0</td><td>10.0.20.2/30</td><td>Link to R6 Gateway</td></tr>
+    </table>
+  </div>
+
+  <h2>Customer Edge Routers</h2>
+
+  <div class="router-box">
+    <h3>C1 (R9) - Customer 1 Edge</h3>
+    <table>
+      <tr><th>Interface</th><th>IP Address</th><th>Description</th></tr>
+      <tr><td>Fa0/0</td><td>10.0.22.2/30</td><td>Uplink to R3</td></tr>
+      <tr><td>Fa1/0</td><td>192.168.9.1/24</td><td>Client Network</td></tr>
+    </table>
+  </div>
+
+  <div class="router-box">
+    <h3>C2 (R10) - Customer 2 Edge</h3>
+    <p><strong>Loopback0:</strong> 192.168.10.1/24</p>
+    <table>
+      <tr><th>Interface</th><th>IP Address</th><th>Description</th></tr>
+      <tr><td>Fa0/0</td><td>10.0.23.2/30</td><td>Uplink to R4</td></tr>
+    </table>
+  </div>
+
+  <h2>All IP Subnets</h2>
+  <table>
+    <tr><th>Subnet</th><th>Purpose</th><th>Connected Devices</th></tr>
+    <tr><td>10.0.1.0/30</td><td>P2P</td><td>R1 Fa0/0 - R2 Fa0/0</td></tr>
+    <tr><td>10.0.2.0/30</td><td>P2P</td><td>R1 Fa1/0 - R3 Fa0/0</td></tr>
+    <tr><td>10.0.3.0/30</td><td>P2P</td><td>R1 Fa2/0 - R3 Fa1/0</td></tr>
+    <tr><td>10.0.4.0/30</td><td>P2P</td><td>R1 Fa3/0 - R4 Fa2/0</td></tr>
+    <tr><td>10.0.5.0/30</td><td>P2P</td><td>R1 Fa4/0 - R4 Fa3/0</td></tr>
+    <tr><td>10.0.6.0/30</td><td>P2P</td><td>R1 Fa5/0 - R5 Fa0/0</td></tr>
+    <tr><td>10.0.7.0/30</td><td>P2P</td><td>R2 Fa1/0 - R4 Fa0/0</td></tr>
+    <tr><td>10.0.8.0/30</td><td>P2P</td><td>R2 Fa2/0 - R4 Fa1/0</td></tr>
+    <tr><td>10.0.9.0/30</td><td>P2P</td><td>R2 Fa3/0 - R3 Fa2/0</td></tr>
+    <tr><td>10.0.10.0/30</td><td>P2P</td><td>R2 Fa4/0 - R3 Fa3/0</td></tr>
+    <tr><td>10.0.11.0/30</td><td>P2P</td><td>R2 Fa5/0 - R5 Fa1/0</td></tr>
+    <tr><td>10.0.12.0/30</td><td>P2P</td><td>R5 Fa2/0 - R6 Fa0/0</td></tr>
+    <tr><td>10.0.13.0/30</td><td>P2P</td><td>R5 Fa3/0 - R6 Fa1/0</td></tr>
+    <tr><td>10.0.20.0/30</td><td>P2P</td><td>R6 Fa2/0 - R8 Fa0/0</td></tr>
+    <tr><td>10.0.21.0/30</td><td>P2P</td><td>R6 Fa3/0 - R7 Fa0/0</td></tr>
+    <tr><td>10.0.22.0/30</td><td>Customer</td><td>R3 Fa4/0 - C1 Fa0/0</td></tr>
+    <tr><td>10.0.23.0/30</td><td>Customer</td><td>R4 Fa4/0 - C2 Fa0/0</td></tr>
+    <tr><td>192.168.7.0/24</td><td>DMZ Services</td><td>R7 Loopback0</td></tr>
+    <tr><td>192.168.8.0/24</td><td>Monitoring</td><td>R8 Loopback0</td></tr>
+    <tr><td>192.168.9.0/24</td><td>Client 1 LAN</td><td>C1 Fa1/0</td></tr>
+    <tr><td>192.168.10.0/24</td><td>Client 2 LAN</td><td>C2 Loopback0</td></tr>
+    <tr><td>192.168.70.0/24</td><td>VoIP</td><td>R7 Fa1/0, Asterisk VM</td></tr>
+    <tr><td>192.168.71.0/24</td><td>RADIUS Auth</td><td>R7 Fa2/0, RADIUS VM</td></tr>
+    <tr><td>192.168.182.0/24</td><td>Internet/WAN</td><td>R6 Gi6/0</td></tr>
+  </table>
+
+  <h2>Management Access</h2>
+  <table>
+    <tr><th>Router</th><th>Telnet Port</th><th>Authentication</th></tr>
+    <tr><td>R1</td><td>localhost:5000</td><td>Login required</td></tr>
+    <tr><td>R2</td><td>localhost:5001</td><td>Login required</td></tr>
+    <tr><td>R3</td><td>localhost:5002</td><td>Login required</td></tr>
+    <tr><td>R4</td><td>localhost:5003</td><td>Login required</td></tr>
+    <tr><td>R5</td><td>localhost:5004</td><td>Login required</td></tr>
+    <tr><td>R6</td><td>localhost:5005</td><td>Login required</td></tr>
+    <tr><td>R7</td><td>localhost:5006</td><td>RADIUS (RAD_AUTH)</td></tr>
+    <tr><td>R8</td><td>localhost:5007</td><td>Login required</td></tr>
+    <tr><td>C1</td><td>localhost:5008</td><td>Login required</td></tr>
+    <tr><td>C2</td><td>localhost:5009</td><td>Login required</td></tr>
+  </table>
+
+  <h2>Key Features</h2>
+  <ul>
+    <li>MPLS LDP enabled on R1-R6 core routers</li>
+    <li>OSPF Area 0 for all routing</li>
+    <li>Redundant paths between core routers</li>
+    <li>NAT overload on R6 for internet access</li>
+    <li>RADIUS authentication on R7</li>
+    <li>DMZ with VoIP and RADIUS services</li>
+    <li>Monitoring network on R8</li>
+    <li>Two customer edge networks (C1, C2)</li>
+  </ul>
+
+  <div style="margin-top:30px; padding:15px; background-color:#e8f4f8; border:2px solid #3498db;">
+    <p><strong>Document Info:</strong> Generated 20/11/2025 22:26:43 | Network: GNS3 Lab | Total Routers: 10 | Total Subnets: 24</p>
+  </div>
+</body>
+</html>
