@@ -15,12 +15,16 @@ This project implements a comprehensive network security and monitoring solution
 ### Project Theme
 **HIDS/NIDS Solutions** - Host and Network Intrusion Detection Systems with integrated monitoring and analysis capabilities.
 
+
 ## 🌐 Live Documentation
 
-**GitHub Pages Site**: [https://mighri-manar.github.io/cloud-monitoring/](https://github.com/mighri-manar/cloud-monitoring/)
+**GitHub Pages Site**: [https://mighri-manar.github.io/cloud-monitoring/](https://mighri-manar.github.io/cloud-monitoring/)
+
+- **Homepage**: [https://mighri-manar.github.io/cloud-monitoring/](https://mighri-manar.github.io/cloud-monitoring/)
+- **Network Topology**: [https://mighri-manar.github.io/cloud-monitoring/network-topology-summary.html](https://mighri-manar.github.io/cloud-monitoring/network-topology-summary.html)
 
 View the complete network topology documentation online without cloning the repository!
----
+
 
 ## 🏗️ Architecture
 
