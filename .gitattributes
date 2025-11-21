@@ -1,0 +1,5 @@
+# Network configuration files
+*.cfg linguist-language=Cisco
+
+# Documentation
+*.md linguist-documentation
