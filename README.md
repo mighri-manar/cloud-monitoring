@@ -487,9 +487,9 @@ This is an academic project for network security and monitoring implementation. 
 
 ## 📧 Contact
 
-**Project Author**: [Your Name]  
-**Email**: [your.email@example.com]  
-**GitHub**: [@yourusername](https://github.com/yourusername)
+**Project Author**: [Manar Mighri]  
+**Email**: [mighrimanar11@gmail.com]  
+**GitHub**: [@mighri-manar](https://github.com/mighri-manar)
 
 ---
 
@@ -497,19 +497,12 @@ This is an academic project for network security and monitoring implementation. 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
 
-## 🙏 Acknowledgments
-
-- Academic institution and professors for project guidance
-- Cisco for IOS software and documentation
-- Open-source community for monitoring tools (Nagios, ELK, Wazuh)
-- GNS3 project for network simulation capabilities
 
 ---
 
 **Project Status**: 🟢 Active Development  
-**Last Updated**: November 2025  
+**Last Updated**: November 21st 2025  
 **Current Phase**: Phase 3 Complete - Moving to Phase 4 (Advanced Security)
 
 ---
